@@ -15,7 +15,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [modalImage, setModalImage] = useState(null);
-  const [hasMoreImages, setHasMoreImages] = useState(true);
+  const [ hasMoreImages , setHasMoreImages] = useState(true);
 
   const fetchImages = async () => {
     if (query === '') return;
@@ -69,7 +69,7 @@ function App() {
         <div className="content-container">
           <ImageGallery images={images} onImageClick={openModal} />
           {isLoading && <MyLoader />}
-          {images.length > 0 && !isLoading && (
+          {images.length > 0 && !isLoading && hasMoreImages && (
             <Button
               onClick={loadMoreImages}
               shouldRender={images.length >= 12 && !isLoading}
